@@ -1,7 +1,7 @@
 cheatsheet do
   title 'SilverStripe Templates'
   docset_file_name 'SilverStripe_Templates'
-  keyword 'SS'
+  keyword 'SS SilverStripe'
   source_url 'http://cheat.kapeli.com'
   
   style '
@@ -116,5 +116,5 @@ cheatsheet do
         This if block will pass if we're currently on the page-url page or one of its children.
       END
     end
-  end
+  end 
 end
