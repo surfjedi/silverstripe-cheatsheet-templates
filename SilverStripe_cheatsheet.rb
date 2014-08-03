@@ -13,6 +13,93 @@ cheatsheet do
       background: none;
     }
   '
+
+  category do
+    id 'Template elements'
+   
+    entry do
+      name 'Variables'
+      notes <<-'END'
+        ```ruby
+        $Property
+        $Property(param)
+        $Property.SubProperty
+        ```
+      END
+    end
+    entry do
+      name 'Escaping'
+      notes <<-'END'
+        ```ruby
+        $Foopx // returns "" (as it looks for a Foopx value)
+        {$Foo}px  // returns "3px" (CORRECT)
+        $$Foo // returns ""
+        ${$Foo} // returns "$3"
+        $Foo // returns "3"
+        \$Foo // returns "$Foo"
+
+        ```
+      END
+    end
+
+    entry do
+      name 'Includes'
+      notes <<-'END'
+        ```ruby
+        sample="<% include SideBar %>"
+        ```
+        'The include tag can be particularly helpful for nested functionality. In this example, the include only happens if a variable is true'
+        
+        ```ruby
+        sample="<% if $CurrentMember %>
+                  <% include MembersOnlyInclude %>
+                <% end_if %>"
+        ```
+
+      END
+    end
+  end
+  category do
+    id 'Images'
+    entry do 
+      name 'Images in Templates'
+      notes <<-'END'
+        ```ruby
+        $Image.SetWidth(80) // returns a image 80px wide, ratio kept the same
+        $Image.SetHeight(80) // returns a image 80px tall, ratio kept the same
+        $Image.SetSize(80,80) // returns a 80x80px padded image
+        $Image.SetRatioSize(80,80) // Returns an image scaled proportional, with its greatest diameter scaled to 80px
+        $Image.CroppedImage(80,80) // Returns an 80x80 image cropped from the center.
+        $Image.PaddedImage(80, 80) // Returns an 80x80 image. Unused space is padded white. No crop. No stretching
+        $Image.Width // returns width of image
+        $Image.Height // returns height of image
+        $Image.Orientation // returns Orientation
+        $Image.Filename // returns filename
+        $Image.URL // returns filename
+        ```
+      END
+    end
+    entry do 
+      name 'Images in the Page PHP'
+      notes <<-'END'
+        ```ruby
+      // manipulation functions
+      $image->resize(width,height); // Basic resize, just skews the image
+      $image->resizeRatio(width,height) // Resizes an image with max width and height
+      $image->paddedResize(width,height) // Adds padding after resizing to width or height.
+      $image->croppedImage(width,height) // Crops the image from the centre, to given values.
+      $image->resizeByHeight(height) // Maximum height the image resizes to, keeps proportion
+      $image->resizeByWidth(width) // Maximum width the image resizes to, keeps proportion 
+      $image->greyscale(r,g,b) // alters image channels ===
+       
+      // values
+      $image->getHeight() // Returns the height of the image.
+      $image->getWidth() // Returns the width of the image
+      $image->getOrienation() // Returns a class constant: ORIENTATION_SQUARE or ORIENTATION_PORTRAIT or ORIENTATION_LANDSCAPE
+        ```
+      END
+    end
+  end
   category do
     id 'Loops'
    

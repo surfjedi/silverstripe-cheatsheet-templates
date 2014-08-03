@@ -14,6 +14,13 @@
             background: none;
           }
     </style>
+    <link href='//dash_ref/Category/Template elements/1'>
+    <link href='//dash_ref_Template elements/Entry/Variables/0'>
+    <link href='//dash_ref_Template elements/Entry/Escaping/0'>
+    <link href='//dash_ref_Template elements/Entry/Includes/0'>
+    <link href='//dash_ref/Category/Images/1'>
+    <link href='//dash_ref_Images/Entry/Images in Templates/0'>
+    <link href='//dash_ref_Images/Entry/Images in the Page PHP/0'>
     <link href='//dash_ref/Category/Loops/1'>
     <link href='//dash_ref_Loops/Entry/Children Loop/0'>
     <link href='//dash_ref_Loops/Entry/Children Loop of page-by-url/0'>
@@ -35,6 +42,55 @@
     </header>
     <article>
       <p></p>
+      <section class='category'>
+        <h2 id='//dash_ref/Category/Template elements/1'>
+          Template elements
+        </h2>
+        <table>
+          <tr id='//dash_ref_Template elements/Entry/Variables/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>Variables</p></div>
+              <div class='notes'><pre class="highlight ruby"><span class="vg">$Property</span>&#x000A;<span class="vg">$Property</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>&#x000A;<span class="vg">$Property</span><span class="o">.</span><span class="no">SubProperty</span></pre></div>
+            </td>
+          </tr>
+          <tr id='//dash_ref_Template elements/Entry/Escaping/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>Escaping</p></div>
+              <div class='notes'><pre class="highlight ruby"><span class="vg">$Foopx</span> <span class="o">/</span><span class="sr">/ returns "" (as it looks for a Foopx value)&#x000A;{$Foo}px  /</span><span class="o">/</span> <span class="n">returns</span> <span class="s2">"3px"</span> <span class="p">(</span><span class="no">CORRECT</span><span class="p">)</span>&#x000A;<span class="vg">$$</span><span class="no">Foo</span> <span class="sr">//</span> <span class="n">returns</span> <span class="s2">""</span>&#x000A;<span class="err">$</span><span class="p">{</span><span class="vg">$Foo</span><span class="p">}</span> <span class="o">/</span><span class="sr">/ returns "$3"&#x000A;$Foo /</span><span class="o">/</span> <span class="n">returns</span> <span class="s2">"3"</span>&#x000A;<span class="p">\</span><span class="vg">$Foo</span> <span class="o">/</span><span class="sr">/ returns "$Foo"&#x000A;&#x000A;</span></pre></div>
+            </td>
+          </tr>
+          <tr id='//dash_ref_Template elements/Entry/Includes/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>Includes</p></div>
+              <div class='notes'>
+                <pre class="highlight ruby"><span class="n">sample</span><span class="o">=</span><span class="s2">"&lt;% include SideBar %&gt;"</span></pre>
+                
+                <p>&#39;The include tag can be particularly helpful for nested functionality. In this example, the include only happens if a variable is true&#39;</p>
+                <pre class="highlight ruby"><span class="n">sample</span><span class="o">=</span><span class="s2">"&lt;% if $CurrentMember %&gt;&#x000A;          &lt;% include MembersOnlyInclude %&gt;&#x000A;        &lt;% end_if %&gt;"</span></pre>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section class='category'>
+        <h2 id='//dash_ref/Category/Images/1'>
+          Images
+        </h2>
+        <table>
+          <tr id='//dash_ref_Images/Entry/Images in Templates/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>Images in Templates</p></div>
+              <div class='notes'><pre class="highlight ruby"><span class="vg">$Image</span><span class="o">.</span><span class="no">SetWidth</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span> <span class="o">/</span><span class="sr">/ returns a image 80px wide, ratio kept the same&#x000A;$Image.SetHeight(80) /</span><span class="o">/</span> <span class="n">returns</span> <span class="n">a</span> <span class="n">image</span> <span class="mi">80</span><span class="n">px</span> <span class="n">tall</span><span class="p">,</span> <span class="n">ratio</span> <span class="n">kept</span> <span class="n">the</span> <span class="n">same</span>&#x000A;<span class="vg">$Image</span><span class="o">.</span><span class="no">SetSize</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span> <span class="o">/</span><span class="sr">/ returns a 80x80px padded image&#x000A;$Image.SetRatioSize(80,80) /</span><span class="o">/</span> <span class="no">Returns</span> <span class="n">an</span> <span class="n">image</span> <span class="n">scaled</span> <span class="n">proportional</span><span class="p">,</span> <span class="n">with</span> <span class="n">its</span> <span class="n">greatest</span> <span class="n">diameter</span> <span class="n">scaled</span> <span class="n">to</span> <span class="mi">80</span><span class="n">px</span>&#x000A;<span class="vg">$Image</span><span class="o">.</span><span class="no">CroppedImage</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span> <span class="o">/</span><span class="sr">/ Returns an 80x80 image cropped from the center.&#x000A;$Image.PaddedImage(80, 80) /</span><span class="o">/</span> <span class="no">Returns</span> <span class="n">an</span> <span class="mi">80</span><span class="n">x80</span> <span class="n">image</span><span class="o">.</span> <span class="no">Unused</span> <span class="n">space</span> <span class="n">is</span> <span class="n">padded</span> <span class="n">white</span><span class="o">.</span> <span class="no">No</span> <span class="n">crop</span><span class="o">.</span> <span class="no">No</span> <span class="n">stretching</span>&#x000A;<span class="vg">$Image</span><span class="o">.</span><span class="no">Width</span> <span class="sr">//</span> <span class="n">returns</span> <span class="n">width</span> <span class="n">of</span> <span class="n">image</span>&#x000A;<span class="vg">$Image</span><span class="o">.</span><span class="no">Height</span> <span class="sr">//</span> <span class="n">returns</span> <span class="n">height</span> <span class="n">of</span> <span class="n">image</span>&#x000A;<span class="vg">$Image</span><span class="o">.</span><span class="no">Orientation</span> <span class="sr">//</span> <span class="n">returns</span> <span class="no">Orientation</span>&#x000A;<span class="vg">$Image</span><span class="o">.</span><span class="no">Filename</span> <span class="sr">//</span> <span class="n">returns</span> <span class="n">filename</span>&#x000A;<span class="vg">$Image</span><span class="o">.</span><span class="no">URL</span> <span class="sr">//</span> <span class="n">returns</span> <span class="n">filename</span></pre></div>
+            </td>
+          </tr>
+          <tr id='//dash_ref_Images/Entry/Images in the Page PHP/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>Images in the Page PHP</p></div>
+              <div class='notes'><pre class="highlight ruby"><span class="sr">//</span> <span class="n">manipulation</span> <span class="n">functions</span>&#x000A;<span class="vg">$image</span><span class="o">-&gt;</span><span class="n">resize</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">);</span> <span class="sr">//</span> <span class="no">Basic</span> <span class="n">resize</span><span class="p">,</span> <span class="n">just</span> <span class="n">skews</span> <span class="n">the</span> <span class="n">image</span>&#x000A;<span class="vg">$image</span><span class="o">-&gt;</span><span class="n">resizeRatio</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">)</span> <span class="o">/</span><span class="sr">/ Resizes an image with max width and height&#x000A;$image-&gt;paddedResize(width,height) /</span><span class="o">/</span> <span class="no">Adds</span> <span class="n">padding</span> <span class="n">after</span> <span class="n">resizing</span> <span class="n">to</span> <span class="n">width</span> <span class="n">or</span> <span class="n">height</span><span class="o">.</span>&#x000A;<span class="vg">$image</span><span class="o">-&gt;</span><span class="n">croppedImage</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">height</span><span class="p">)</span> <span class="o">/</span><span class="sr">/ Crops the image from the centre, to given values.&#x000A;$image-&gt;resizeByHeight(height) /</span><span class="o">/</span> <span class="no">Maximum</span> <span class="n">height</span> <span class="n">the</span> <span class="n">image</span> <span class="n">resizes</span> <span class="n">to</span><span class="p">,</span> <span class="n">keeps</span> <span class="n">proportion</span>&#x000A;<span class="vg">$image</span><span class="o">-&gt;</span><span class="n">resizeByWidth</span><span class="p">(</span><span class="n">width</span><span class="p">)</span> <span class="o">/</span><span class="sr">/ Maximum width the image resizes to, keeps proportion &#x000A;$image-&gt;greyscale(r,g,b) /</span><span class="o">/</span> <span class="n">alters</span> <span class="n">image</span> <span class="n">channels</span> <span class="o">===</span>&#x000A;&#x000A;<span class="sr">//</span> <span class="n">values</span>&#x000A;<span class="vg">$image</span><span class="o">-&gt;</span><span class="n">getHeight</span><span class="p">()</span> <span class="o">/</span><span class="sr">/ Returns the height of the image.&#x000A;$image-&gt;getWidth() /</span><span class="o">/</span> <span class="no">Returns</span> <span class="n">the</span> <span class="n">width</span> <span class="n">of</span> <span class="n">the</span> <span class="n">image</span>&#x000A;<span class="vg">$image</span><span class="o">-&gt;</span><span class="n">getOrienation</span><span class="p">()</span> <span class="o">/</span><span class="sr">/ Returns a class constant: ORIENTATION_SQUARE or ORIENTATION_PORTRAIT or ORIENTATION_LANDSCAPE&#x000A;</span></pre></div>
+            </td>
+          </tr>
+        </table>
+      </section>
       <section class='category'>
         <h2 id='//dash_ref/Category/Loops/1'>
           Loops
