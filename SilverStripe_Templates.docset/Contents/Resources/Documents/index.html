@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>SilverStripe Templates</title>
+    <link href='style.css' rel='stylesheet'>
+    <style type='text/css'>
+      
+          td.td_command code
+          {
+            padding: 0px; 
+            box-shadow: none;
+            border: none;
+            background: none;
+          }
+    </style>
+    <link href='//dash_ref/Category/Loops/1'>
+    <link href='//dash_ref_Loops/Entry/Children Loop/0'>
+    <link href='//dash_ref_Loops/Entry/Children Loop of page-by-url/0'>
+    <link href='//dash_ref_Loops/Entry/Children Loop all children even if ShowInMenus is false/0'>
+    <link href='//dash_ref/Category/Access pages, levels, specific pages/1'>
+    <link href='//dash_ref_Access pages, levels, specific pages/Entry/Access level/0'>
+    <link href='//dash_ref_Access pages, levels, specific pages/Entry/Access specific page/0'>
+    <link href='//dash_ref/Category/Links and Linking Modes/1'>
+    <link href='//dash_ref_Links and Linking Modes/Entry/link is $LinkingMode/0'>
+    <link href='//dash_ref_Links and Linking Modes/Entry/current is $LinkingMode/0'>
+    <link href='//dash_ref_Links and Linking Modes/Entry/section is $LinkingMode/0'>
+    <link href='//dash_ref_Links and Linking Modes/Entry/$LinkOrCurrent/0'>
+    <link href='//dash_ref_Links and Linking Modes/Entry/$LinkOrCurrent/0'>
+    <link href='//dash_ref_Links and Linking Modes/Entry/$InSection(page-url)/0'>
+  </head>
+  <body>
+    <header>
+      <h1>SilverStripe Templates</h1>
+    </header>
+    <article>
+      <p></p>
+      <section class='category'>
+        <h2 id='//dash_ref/Category/Loops/1'>
+          Loops
+        </h2>
+        <table>
+          <tr id='//dash_ref_Loops/Entry/Children Loop/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>Children Loop</p></div>
+              <div class='notes'>
+                <pre class="highlight ruby"><span class="n">sample</span> <span class="o">=</span> <span class="s2">"&lt;% loop $Children %&gt;...&lt;% end_loop %&gt;"</span></pre>
+                
+                <p>Will loop over all children of the current page context. Helpful to create page-specific subnavigations. Most likely, you&#39;ll want to use &lt;% loop $Menu %&gt; for your main menus, since its independent of the page context.</p>
+              </div>
+            </td>
+          </tr>
+          <tr id='//dash_ref_Loops/Entry/Children Loop of page-by-url/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>Children Loop of page-by-url</p></div>
+              <div class='notes'>
+                <pre class="highlight ruby"><span class="n">sample</span><span class="o">=</span><span class="s2">"&lt;% loop $ChildrenOf(&lt;my-page-url&gt;) %&gt;...&lt;% end_loop %&gt;"</span></pre>
+                
+                <p>Will loop over all children of the current page context. Helpful to create page-specific subnavigations. Most likely, you&#39;ll want to use &lt;% loop $Menu %&gt; for your main menus, since its independent of the page context.</p>
+                <pre class="highlight ruby"><span class="n">sample</span><span class="o">=</span><span class="s2">"&lt;% loop $allChildren %&gt;...&lt;% end_loop %&gt;"</span></pre>
+              </div>
+            </td>
+          </tr>
+          <tr id='//dash_ref_Loops/Entry/Children Loop all children even if ShowInMenus is false/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>Children Loop all children even if ShowInMenus is false</p></div>
+              <div class='notes'>
+                <pre class="highlight ruby"><span class="n">sample</span><span class="o">=</span><span class="s2">"&lt;% loop $allChildren %&gt;...&lt;% end_loop %&gt;"</span></pre>
+                
+                <p>Will loop over all children of the current page context. Helpful to create page-specific subnavigations. Most likely, you&#39;ll want to use &lt;% loop $Menu %&gt; for your main menus, since its independent of the page context.</p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section class='category'>
+        <h2 id='//dash_ref/Category/Access pages, levels, specific pages/1'>
+          Access pages, levels, specific pages
+        </h2>
+        <table>
+          <tr id='//dash_ref_Access pages, levels, specific pages/Entry/Access level/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>Access level</p></div>
+              <div class='notes'>
+                <pre class="highlight ruby"><span class="n">sample</span> <span class="o">=</span> <span class="s2">"&lt;% with $Level(1) %&gt;&#x000A;              $Title&#x000A;          &lt;% end_with %&gt;"</span></pre>
+                
+                <p>Will return a page in the current path, at the level specified by the numbers.
+                It is based on the current page context, looking back through its parent pages.      </p>
+              </div>
+            </td>
+          </tr>
+          <tr id='//dash_ref_Access pages, levels, specific pages/Entry/Access specific page/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>Access specific page</p></div>
+              <div class='notes'>
+                <pre class="highlight ruby"><span class="n">sample</span> <span class="o">=</span> <span class="s2">"&lt;% with $Page(my-page) %&gt;...&lt;% end_with %&gt;"</span></pre>
+                
+                <p>&quot;Page&quot; will return a single page from the site tree, looking it up by URL. You can use it in the &lt;% loop %&gt; format. 
+                Can&#39;t be called using $Page(my-page).Title.      </p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section class='category'>
+        <h2 id='//dash_ref/Category/Links and Linking Modes/1'>
+          Links and Linking Modes
+        </h2>
+        <table>
+          <tr id='//dash_ref_Links and Linking Modes/Entry/link is $LinkingMode/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>link is $LinkingMode</p></div>
+              <div class='notes'><p>You are neither on this page nor in this section.      </p></div>
+            </td>
+          </tr>
+          <tr id='//dash_ref_Links and Linking Modes/Entry/current is $LinkingMode/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>current is $LinkingMode</p></div>
+              <div class='notes'><p>You are currently on this page.      </p></div>
+            </td>
+          </tr>
+          <tr id='//dash_ref_Links and Linking Modes/Entry/section is $LinkingMode/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>section is $LinkingMode</p></div>
+              <div class='notes'><p>The current page is a child of this menu item, so the current &quot;section&quot;.      </p></div>
+            </td>
+          </tr>
+          <tr id='//dash_ref_Links and Linking Modes/Entry/$LinkOrCurrent/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>$LinkOrCurrent</p></div>
+              <div class='notes'><p>Determines if the item is the current page. Returns &quot;link&quot; or &quot;current&quot; strings.      </p></div>
+            </td>
+          </tr>
+          <tr id='//dash_ref_Links and Linking Modes/Entry/$LinkOrCurrent/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>$LinkOrCurrent</p></div>
+              <div class='notes'><p>Determines if the item is in the current section, so in the path towards the current page. Useful for menus which you only want to show a second level menu when you are on that page or a child of it. Returns &quot;link&quot; or &quot;section&quot; strings.</p></div>
+            </td>
+          </tr>
+          <tr id='//dash_ref_Links and Linking Modes/Entry/$InSection(page-url)/0'>
+            <td class='description' colspan='2'>
+              <div class='name'><p>$InSection(page-url)</p></div>
+              <div class='notes'><p>This if block will pass if we&#39;re currently on the page-url page or one of its children.</p></div>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </article>
+    <footer>
+      You can modify and improve this cheat sheet <a onclick="window.dash.openExternal_(this.href); return false;" href="http://cheat.kapeli.com">here</a>
+    </footer>
+  </body>
+</html>
